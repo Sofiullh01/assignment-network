@@ -1,65 +1,68 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate, } from "react-router-dom";
 import Google from "./Google";
 import register from '../../assets/register.jpg'
+import useAuth from "../../Hooks/useAuth";
+import toast from "react-hot-toast";
+import { updateProfile } from "firebase/auth";
+import { auth } from "../../Config/Firebase/firebase.config";
 
 const Register = () => {
-  //   const { createUser,setUser } = useContext(AuthContext);
-  //   const navigate = useNavigate();
-  //   const location = useLocation();
-  //   const handleRegister = (e) => {
-  //     e.preventDefault();
-  //     const form = e.target;
-  //     const name = form.username.value;
-  //     const email = form.email.value;
-  //     const photo = form.photo.value;
-  //     const password = form.password.value;
+    const {createUser,setUser} =  useAuth()
 
-  //     // Password validation
-  //     const hasCapitalLetter = /[A-Z]/.test(password);
-  //     const hasSpecialCharacter = /[!@#$%^&*]/.test(password);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const handleRegister = async(e) => {
+        
+      e.preventDefault();
+      const form = e.target;
+      const name = form.name.value;
+      const email = form.email.value;
+      const photo = form.photo.value;
+      const password = form.password.value;
 
-  //     if (password.length < 6 || hasCapitalLetter || hasSpecialCharacter) {
-  //       toast.error("Password must meet the criteria.");
-  //       return;
-  //     }
+    //   Password validation
+      const hasCapitalLetter = /[A-Z]/.test(password);
+      const hasSpecialCharacter = /[!@#$%^&*]/.test(password);
 
-  //     // Create the user
-  //     createUser(email, password)
-  //       .then((userCredential) => {
-  //         console.log(userCredential.user);
-  //         toast.success("Successfully Your Registration Completed!");
+      if (password.length < 6 || hasCapitalLetter || hasSpecialCharacter) {
+        toast.error("Password not valid, Please Try again.");
+        return;
+      }
 
-  //         // Update the user's profile
-  //         updateProfile(auth.currentUser, {
-  //           displayName: name,
-  //           photoURL: photo,
-  //         })
-  //           .then(() => {
-  //             console.log(auth.currentUser)
-  //             setUser(auth.currentUser)
-  //           })
-  //           .catch((updateProfileError) => {
-  //             console.error("Error updating user profile:", updateProfileError);
-  //           });
+      const toastId = toast.loading('Logging In ...')
+    //   Create user
+      try {
+       await createUser(email, password)
+          toast.success("Successfully Your Registration!", {id: toastId});
+          try {
+            await updateProfile(auth.currentUser, {
+              displayName: name,
+              photoURL: photo,
+            });
+            console.log(auth.currentUser);
+            setUser(auth.currentUser);
+          } catch (updateProfileError) {
+            console.error("Error updating user profile:", updateProfileError);
+          }
+          navigate(location?.state ? location.state : "/");
+      }catch (error) {
+        toast.error(error.message, {id: toastId});
+      }
 
-  //         navigate(location?.state ? location.state : "/");
-  //       })
-  //       .catch((createUserError) => {
-  //         console.error("Error creating user:", createUserError);
-  //       });
 
-  //     const userAdd = {
-  //       name,
-  //       email,
-  //       photo,
-  //       password,
-  //     };
-  //     console.log(userAdd);
-  //   };
+      const userAdd = {
+        name,
+        email,
+        photo,
+        password,
+      };
+      console.log(userAdd);
+    };
 
   return (
     <div className="w-full h-screen  px-12 py-6 space-y-3 rounded-xl dark:bg-gray-900  dark:text-gray-100 flex justify-center items-center ">
-      <form className="space-y-3  px-16 py-4  shadow-lg rounded-md max-w-md mx-auto bg-[#BD00BF] bg-opacity-10  ">
+      <form onSubmit={handleRegister}
+       className="space-y-3  px-16 py-4  shadow-lg rounded-md max-w-md mx-auto bg-[#BD00BF] bg-opacity-10  ">
         <h1 className="text-4xl font-bold text-center">Register</h1>
         <p className="text-base font-semibold text-center">Get started with our program .</p>
         <div className="flex gap-3">
@@ -67,8 +70,7 @@ const Register = () => {
             <label className="block dark:text-gray-400">User Name</label>
             <input
               type="text"
-              name="username"
-              id="username"
+              name="name"
               placeholder="Username"
               className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
             />
@@ -106,7 +108,8 @@ const Register = () => {
             </a>
           </div>
         </div>
-        <button className="block  p-3 text-center rounded-sm dark:text-gray-900 text-white btn btn-block  bg-gray-700 hover:bg-black duration-700">
+        <button type=" submit"
+         className="block  p-3 text-center rounded-sm dark:text-gray-900 text-white btn btn-block  bg-gray-700 hover:bg-black duration-700">
           Sign Up
         </button>
         <div className="flex flex-col justify-center items-center">
@@ -118,7 +121,7 @@ const Register = () => {
         <p className="text-xs text-center sm:px-6 dark:text-gray-400">
           Do have an account?
           <Link to="/login">
-            <span className="text-base font-semibold">Register</span>
+            <span className="text-base font-semibold">Sign In</span>
           </Link>
         </p>
       </form>

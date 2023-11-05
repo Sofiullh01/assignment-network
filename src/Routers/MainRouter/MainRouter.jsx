@@ -4,6 +4,8 @@ import Home from "../../Pages/Home/Home";
 import About from "../../Pages/About/About";
 import Register from "../../Pages/ManageUser/Register";
 import Login from "../../Pages/ManageUser/Login";
+import AddAssignment from "../../Pages/AddAssignment/AddAssignment";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -13,6 +15,10 @@ const router = createBrowserRouter([
         {
             index: true,
             element: <Home></Home>,
+        },
+        {
+            path: 'addassignment',
+            element: <PrivateRoute><AddAssignment/></PrivateRoute>,
         },
         {
             path: 'about',

@@ -12,8 +12,13 @@ const Navber = () => {
         <NavLink to="/">Home</NavLink>
       </li>
       <li>
+        <NavLink to="/task">Your Task</NavLink>
+      </li>
+      {
+        user && <li>
         <NavLink to="/addassignment">Add Assignment</NavLink>
       </li>
+      }
       <li>
         <NavLink to="/about">About Us</NavLink>
       </li>
@@ -31,7 +36,7 @@ const Navber = () => {
     
   }
   return (
-    <div className="navbar shadow-md px-8 justify-between">
+    <div className="navbar shadow-md lg:px-8 justify-between">
       <div className="">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">

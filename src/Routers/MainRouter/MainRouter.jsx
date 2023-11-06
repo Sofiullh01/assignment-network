@@ -6,6 +6,7 @@ import Register from "../../Pages/ManageUser/Register";
 import Login from "../../Pages/ManageUser/Login";
 import AddAssignment from "../../Pages/AddAssignment/AddAssignment";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import Assignments from "../../Pages/Assignment/Assignments";
 
 const router = createBrowserRouter([
     {
@@ -15,6 +16,11 @@ const router = createBrowserRouter([
         {
             index: true,
             element: <Home></Home>,
+        },
+        {
+          path: 'task',
+          element: <Assignments></Assignments>,
+          loader: ()=> fetch('http://localhost:5000/api/v1/assignments')
         },
         {
             path: 'addassignment',

@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+
 import AssignmentCard from "./AssignmentCard";
 import { useEffect, useState } from "react";
 
@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 const Assignments = () => {
     const [cetagory,setCetagory] = useState('');
     const [assignments,setAssignments] = useState([]);
-
     const url = `http://localhost:5000/api/v1/assignments?cetagory=${cetagory}`;
     console.log(cetagory)
     useEffect(()=>{

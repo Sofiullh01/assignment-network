@@ -31,7 +31,7 @@ const router = createBrowserRouter([
         {
             path: 'view/:id',
             element: <PrivateRoute><ViewCard></ViewCard></PrivateRoute>,
-            loader: ()=> fetch('http://localhost:5000/api/v1/assignments')
+            loader: ({params})=> fetch(`http://localhost:5000/api/v1/assignments/${params.id}`)
 
         },
         {

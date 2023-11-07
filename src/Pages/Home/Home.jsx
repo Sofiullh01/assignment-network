@@ -1,9 +1,12 @@
+import Banner from "./Banner";
+import Sponsor from "./Sponsor";
 
 
 const Home = () => {
     return (
         <div>
-            Home
+            <Banner/>
+            <Sponsor/>
         </div>
     );
 };

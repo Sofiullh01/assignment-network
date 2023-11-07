@@ -14,9 +14,10 @@ const AddAssignment = () => {
     const thumbnail = form.thumbnail.value;
     const description = form.description.value;
     const cetagory = form.cetagory.value;
+    const marks = form.marks.value;
     const dueDate = startDate;
 
-    const infos = { title, description, thumbnail, cetagory, dueDate, email:user.email};
+    const infos = { title, description, thumbnail, cetagory, dueDate,marks, email:user.email};
     console.log(infos);
 
     fetch('http://localhost:5000/api/v1/addassignments',{
@@ -92,9 +93,9 @@ const AddAssignment = () => {
                 className="w-full rounded-md focus:ring focus:ri focus:ri dark:border-gray-700 dark:text-gray-900 px-3 py-1 outline-none duration-700 lg:ml-20"
                 name="cetagory"
               >
-                <option value="hard">Hard</option>
-                <option value="medium">Medium</option>
-                <option value="easy">Easy</option>
+                <option value="Hard">Hard</option>
+                <option value="Medium">Medium</option>
+                <option value="Easy">Easy</option>
               </select>
             </div>
             <div className="col-span-full">

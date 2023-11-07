@@ -7,6 +7,8 @@ import Login from "../../Pages/ManageUser/Login";
 import AddAssignment from "../../Pages/AddAssignment/AddAssignment";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Assignments from "../../Pages/Assignment/Assignments";
+import ViewCard from "../../Pages/ViewCard/ViewCard";
+import UpdateAssignment from "../../Pages/AddAssignment/UpdateAssignment";
 
 const router = createBrowserRouter([
     {
@@ -20,11 +22,21 @@ const router = createBrowserRouter([
         {
           path: 'task',
           element: <Assignments></Assignments>,
-          loader: ()=> fetch('http://localhost:5000/api/v1/assignments')
+          // loader: ()=> fetch('http://localhost:5000/api/v1/assignments')
         },
         {
             path: 'addassignment',
             element: <PrivateRoute><AddAssignment/></PrivateRoute>,
+        },
+        {
+            path: 'view/:id',
+            element: <PrivateRoute><ViewCard></ViewCard></PrivateRoute>,
+            loader: ()=> fetch('http://localhost:5000/api/v1/assignments')
+
+        },
+        {
+            path: 'update/:id',
+            element: <UpdateAssignment/>
         },
         {
             path: 'about',

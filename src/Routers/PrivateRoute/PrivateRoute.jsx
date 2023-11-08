@@ -1,8 +1,21 @@
  import PropTypes from 'prop-types'
+import useAuth from '../../Hooks/useAuth';
+import { Navigate } from 'react-router-dom';
 
 const PrivateRoute = ({children}) => {
+    const {user, lodig} = useAuth();
     
-    return children;
+    if(lodig){
+        return <div className='flex justify-center items-center'>
+            <span className="loading loading-spinner loading-lg inline-block"></span>
+        </div>
+    }
+
+    if(user?.email){
+        return children;
+    }
+
+    return <Navigate to='/login'></Navigate>;
 };
 
 PrivateRoute.propTypes = {

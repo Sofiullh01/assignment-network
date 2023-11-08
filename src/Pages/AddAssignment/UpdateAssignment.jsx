@@ -54,7 +54,7 @@ const UpdateAssignment = () => {
   };
   
   return (
-    <section className="p-6 dark:bg-gray-800 dark:text-gray-50 md:h-screen bg-[#EBF4F5]" style={{ height: 'calc(100vh - 68px)' }}>
+    <section className="p-6 dark:bg-gray-800 dark:text-gray-50 md:h-screen bg-[#F8E5F8]" style={{ height: 'calc(100vh - 68px)' }}>
       <form
         onSubmit={handleUpdate}
         className="container flex flex-col mx-auto space-y-6 "

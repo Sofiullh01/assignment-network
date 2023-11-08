@@ -91,8 +91,8 @@ const ViewCard = () => {
   };
 
   return (
-    <div>
-      <div className="card  bg-base-100 shadow-xl lg:h-[476px] mt-6 ">
+    <div className="px-4">
+      <div className="card  bg-base-100 shadow-xl lg:h-[476px] mt-6 p-3">
         <figure className=" ">
           <img
             src={thumbnail}

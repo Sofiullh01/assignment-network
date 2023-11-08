@@ -9,6 +9,7 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Assignments from "../../Pages/Assignment/Assignments";
 import ViewCard from "../../Pages/ViewCard/ViewCard";
 import UpdateAssignment from "../../Pages/AddAssignment/UpdateAssignment";
+import SubmitAssignment from "../../Pages/SubmitAssignment/SubmitAssignment";
 
 const router = createBrowserRouter([
     {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
         {
             path: 'update/:id',
             element: <UpdateAssignment/>
+        },
+        {
+            path: 'submitassignment',
+            element: <PrivateRoute><SubmitAssignment/></PrivateRoute>,
         },
         {
             path: 'about',

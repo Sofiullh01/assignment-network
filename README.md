@@ -1,8 +1,13 @@
-# React + Vite
+# Our Project Features 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+* Firebase Authentication: Secure user authentication powered by Firebase, enabling user registration, login, and password recovery.
 
-Currently, two official plugins are available:
+* Protected Routes: Utilize React Router to create protected routes accessible only to authenticated users, enhancing the security of your application.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* JWT Integration: Implement JSON Web Tokens (JWT) for user authentication, ensuring a secure and stateless way of maintaining user sessions.
+
+* User Profile Management: Allow users to customize their profiles, update personal information, and manage their account settings.
+
+* User Dashboard: Create a user dashboard where authenticated users can access personalized content, settings, and relevant information.
+
+

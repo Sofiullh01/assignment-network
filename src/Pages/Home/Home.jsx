@@ -1,5 +1,6 @@
 import Banner from "./Banner";
 import Sponsor from "./Sponsor";
+import WhyChoose from "./WhyChoose";
 
 
 const Home = () => {
@@ -7,6 +8,7 @@ const Home = () => {
         <div>
             <Banner/>
             <Sponsor/>
+            <WhyChoose/>
         </div>
     );
 };

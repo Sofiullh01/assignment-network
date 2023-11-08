@@ -15,9 +15,14 @@ const Navber = () => {
         <NavLink to="/task">Your Task</NavLink>
       </li>
       {
-        user && <li>
+        user && <>
+        <li>
         <NavLink to="/addassignment">Add Assignment</NavLink>
       </li>
+        <li>
+        <NavLink to="/submitassignment"> submitted assignments</NavLink>
+      </li>
+      </>
       }
       <li>
         <NavLink to="/about">About Us</NavLink>
@@ -42,7 +47,7 @@ const Navber = () => {
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
+              className="h-8 w-8"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -62,7 +67,7 @@ const Navber = () => {
             {navLinks}
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+        <Link to='/' className="btn btn-ghost normal-case text-xl">Student Network</Link>
       </div>
       <div className=" hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>

@@ -21,7 +21,7 @@ const WhyChoose = () => {
             what your assignment covers. Mention the key aspects and goals of
             creating a network website. Include the Scope: Mention what the
             readers can expect to learn from your assignment. For instance, you
-            can say, "This assignment will guide you through the process of
+            can say, This assignment will guide you through the process of
             designing, developing, and launching a network website.
           </p>
           <Link to='/about' className="flex justify-center items-center">

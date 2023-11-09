@@ -1,3 +1,4 @@
+import PrivateRoute from "../../Routers/PrivateRoute/PrivateRoute";
 import Banner from "./Banner";
 import ShowComplete from "./ShowComplete";
 import Sponsor from "./Sponsor";
@@ -9,7 +10,7 @@ const Home = () => {
         <div>
             <Banner/>
             <Sponsor/>
-            <ShowComplete/>
+            <PrivateRoute><ShowComplete/></PrivateRoute>
             <WhyChoose/>
         </div>
     );

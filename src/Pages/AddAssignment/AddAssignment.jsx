@@ -20,7 +20,7 @@ const AddAssignment = () => {
     const infos = { title, description, thumbnail, cetagory, dueDate,marks, email:user.email};
     console.log(infos);
 
-    fetch('http://localhost:5000/api/v1/addassignments',{
+    fetch('https://assignment-server-11-two.vercel.app/api/v1/addassignments',{
       method: 'POST',
       headers: {
         'content-type': 'application/json'

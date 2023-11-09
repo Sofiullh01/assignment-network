@@ -12,8 +12,10 @@ const UpdateAssignment = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [value, setValue] = useState({});
 
+  const {cetagory,description,dueDate,thumbnail,title,marks} = value || {};
+
   useEffect(()=>{
-    fetch(`http://localhost:5000/api/v1/addassignments/${id}`)
+    fetch(`https://assignment-server-11-two.vercel.app/api/v1/addassignments/${id}`)
     .then(res => res.json())
     .then(data => {
         console.log(data)
@@ -35,7 +37,7 @@ const UpdateAssignment = () => {
 
     const infos = { title, description, thumbnail, cetagory, dueDate,marks, email:user.email};
 
-    fetch(`http://localhost:5000/api/v1/addassignments/${id}`,{
+    fetch(`https://assignment-server-11-two.vercel.app/api/v1/addassignments/${id}`,{
         method: 'PUT',
         headers: {
             'content-type': 'application/json'
@@ -69,6 +71,7 @@ const UpdateAssignment = () => {
               <input
                 type="text"
                 name="title"
+                defaultValue={title}
                 placeholder="Title"
                 className="w-full rounded-md focus:ring focus:ri focus:ri dark:border-gray-700 dark:text-gray-900 px-3 py-1 outline-none duration-700"
               />
@@ -78,6 +81,7 @@ const UpdateAssignment = () => {
               <input
                 type="url"
                 name="thumbnail"
+                defaultValue={thumbnail}
                 placeholder="Photo URL"
                 className="w-full rounded-md focus:ring focus:ri focus:ri dark:border-gray-700 dark:text-gray-900 px-3 py-1 outline-none duration-700"
               />
@@ -88,6 +92,7 @@ const UpdateAssignment = () => {
               <input
                 type="number"
                 name="marks"
+                defaultValue={marks}
                 placeholder="Out of 50"
                 min="0"
                 max="50"
@@ -100,6 +105,7 @@ const UpdateAssignment = () => {
                 selected={startDate}
                 onChange={(date) => setStartDate(date)}
                 dateFormat='dd-MM-yyyy'
+                defaultValue={dueDate}
                 minDate={new Date()}
                 className="w-full rounded-md focus:ring focus:ri focus:ri dark:border-gray-700 dark:text-gray-900 px-3 py-1 outline-none duration-700 lg:ml-12"
               />
@@ -109,6 +115,7 @@ const UpdateAssignment = () => {
               <select
                 className="w-full rounded-md focus:ring focus:ri focus:ri dark:border-gray-700 dark:text-gray-900 px-3 py-1 outline-none duration-700 lg:ml-20"
                 name="cetagory"
+                defaultValue={cetagory}
               >
                 <option value="Hard">Hard</option>
                 <option value="Medium">Medium</option>
@@ -122,6 +129,7 @@ const UpdateAssignment = () => {
                 name="description"
                 cols="1"
                 rows="3"
+                defaultValue={description}
                 placeholder="Description"
               ></textarea>
               <button

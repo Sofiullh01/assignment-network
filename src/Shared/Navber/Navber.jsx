@@ -1,11 +1,11 @@
 import { FiLogOut } from "react-icons/fi";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import toast from "react-hot-toast";
 
 const Navber = () => {
-    const {user,logOut} = useAuth()
-    console.log(user)
+    const {user,logOut} = useAuth();
+    const navigate = useNavigate()
   const navLinks = (
     <>
       <li>
@@ -31,12 +31,12 @@ const Navber = () => {
   );
 
   const hndleLogOut = async () => {
-      const toastId = toast.loading('Logging In ...')
     try{
         logOut()
-        toast.success("User Sign Out seccess !", {id: toastId});
+        toast.success("User Sign Out seccess !");
+        navigate('/login')
     } catch(error){
-        toast.error(error.message, {id: toastId})
+        toast.error(error.message)
     }
     
   }
@@ -67,7 +67,7 @@ const Navber = () => {
             {navLinks}
           </ul>
         </div>
-        <Link to='/' className="btn btn-ghost normal-case text-xl">Student Network</Link>
+        <Link to='/' className="btn btn-ghost normal-case text-xl">Student <span className="text-[#06B2C6]">Network</span></Link>
       </div>
       <div className=" hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>

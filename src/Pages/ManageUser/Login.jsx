@@ -3,6 +3,7 @@ import loginLogo from "../../assets/vecteezy_man-entering-security-password_4689
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import toast from "react-hot-toast";
+import axios from "axios";
 
 const Login = () => {
   const {logInUser} = useAuth();
@@ -19,7 +20,17 @@ const Login = () => {
       try{
         await logInUser(email,password)
         toast.success("Successfully User Sign In!", {id: toastId});
-        navigate(location?.state ? location.state : "/");
+            navigate(location?.state ? location.state : "/");
+        // get access token
+        // const user = {email};
+        // console.log(user)
+        // axios.post('https://assignment-server-11-two.vercel.app/jwt',user,{withCredentials: true})
+        // .then(res => {
+        //   console.log(res.data)
+        //   if(res.data.success){
+            
+        //   }
+        // })
       } catch(error){
         toast.error(error.message, {id: toastId})
       }

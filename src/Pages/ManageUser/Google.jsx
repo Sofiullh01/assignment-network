@@ -8,13 +8,12 @@ const Google = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const handleLogin = async() => {
-    const toastId = toast.loading('Logging In ...')
     try{
       await googleLigin()
-      toast.success("Successfully User Sign In!", {id: toastId});
+      toast.success("Successfully User Sign In!");
         navigate(location?.state ? location.state : "/");
     } catch(error){
-      toast.error(error.message, {id: toastId})
+      toast.error(error.message)
     }
   }
     return (

@@ -24,7 +24,7 @@ const Login = () => {
         // get access token
         // const user = {email};
         // console.log(user)
-        // axios.post('https://assignment-server-11-two.vercel.app/jwt',user,{withCredentials: true})
+        // axios.post('http://localhost:5000/jwt',user,{withCredentials: true})
         // .then(res => {
         //   console.log(res.data)
         //   if(res.data.success){

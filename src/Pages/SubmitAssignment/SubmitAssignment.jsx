@@ -6,7 +6,7 @@ import SubmitTable from "./SubmitTable";
 const SubmitAssignment = () => {
   const [submitData, setSubmitData] = useState([]);
   useEffect(() => {
-    fetch(`https://assignment-server-11-two.vercel.app/api/v1/submit?status=pending`)
+    fetch(`http://localhost:5000/api/v1/submit?status=pending`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

@@ -1,4 +1,5 @@
 import Banner from "./Banner";
+import ShowComplete from "./ShowComplete";
 import Sponsor from "./Sponsor";
 import WhyChoose from "./WhyChoose";
 
@@ -8,6 +9,7 @@ const Home = () => {
         <div>
             <Banner/>
             <Sponsor/>
+            <ShowComplete/>
             <WhyChoose/>
         </div>
     );

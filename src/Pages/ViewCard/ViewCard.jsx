@@ -35,7 +35,7 @@ const ViewCard = () => {
     };
     console.log(submitInfos);
 
-    fetch("https://assignment-server-11-two.vercel.app/api/v1/addassignments/submit", {
+    fetch("http://localhost:5000/api/v1/addassignments/submit", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -54,7 +54,7 @@ const ViewCard = () => {
       });
   };
   useEffect(() => {
-    fetch(`https://assignment-server-11-two.vercel.app/api/v1/assignments/${_id}`)
+    fetch(`http://localhost:5000/api/v1/assignments/${_id}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -73,7 +73,7 @@ const ViewCard = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://assignment-server-11-two.vercel.app/api/v1/addassignments/${id}`, {
+        fetch(`http://localhost:5000/api/v1/addassignments/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

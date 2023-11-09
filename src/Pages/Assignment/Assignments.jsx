@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 const Assignments = () => {
     const [cetagory,setCetagory] = useState('');
     const [assignments,setAssignments] = useState([]);
-    const url = `https://assignment-server-11-two.vercel.app/api/v1/assignments?cetagory=${cetagory}`;
+    const url = `http://localhost:5000/api/v1/assignments?cetagory=${cetagory}`;
     console.log(cetagory)
     useEffect(()=>{
         axios.get(url,{withCredentials:true})
@@ -39,7 +39,7 @@ const Assignments = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:p-0 gap-4 md:p-4 p-6">
                 {
-                    assignments.map(cardInfo => <AssignmentCard 
+                    assignments?.map(cardInfo => <AssignmentCard 
                         key={cardInfo._id}
                         cardInfo={cardInfo}
                         ></AssignmentCard>)

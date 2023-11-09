@@ -15,7 +15,7 @@ const UpdateAssignment = () => {
   const {cetagory,description,dueDate,thumbnail,title,marks} = value || {};
 
   useEffect(()=>{
-    fetch(`https://assignment-server-11-two.vercel.app/api/v1/addassignments/${id}`)
+    fetch(`http://localhost:5000/api/v1/addassignments/${id}`)
     .then(res => res.json())
     .then(data => {
         console.log(data)
@@ -37,7 +37,7 @@ const UpdateAssignment = () => {
 
     const infos = { title, description, thumbnail, cetagory, dueDate,marks, email:user.email};
 
-    fetch(`https://assignment-server-11-two.vercel.app/api/v1/addassignments/${id}`,{
+    fetch(`http://localhost:5000/api/v1/addassignments/${id}`,{
         method: 'PUT',
         headers: {
             'content-type': 'application/json'

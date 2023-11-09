@@ -23,7 +23,7 @@ const router = createBrowserRouter([
         {
           path: 'task',
           element: <Assignments></Assignments>,
-          // loader: ()=> fetch('https://assignment-server-11-two.vercel.app/api/v1/assignments')
+          // loader: ()=> fetch('http://localhost:5000/api/v1/assignments')
         },
         {
             path: 'addassignment',
@@ -32,7 +32,7 @@ const router = createBrowserRouter([
         {
             path: 'view/:id',
             element: <PrivateRoute><ViewCard></ViewCard></PrivateRoute>,
-            loader: ({params})=> fetch(`https://assignment-server-11-two.vercel.app/api/v1/assignments/${params.id}`)
+            loader: ({params})=> fetch(`http://localhost:5000/api/v1/assignments/${params.id}`)
 
         },
         {

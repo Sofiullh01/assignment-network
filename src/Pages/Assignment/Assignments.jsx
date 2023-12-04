@@ -7,20 +7,14 @@ import { useEffect, useState } from "react";
 const Assignments = () => {
     const [cetagory,setCetagory] = useState('');
     const [assignments,setAssignments] = useState([]);
-    const url = `http://localhost:5000/api/v1/assignments?cetagory=${cetagory}`;
+    const url = `https://assignment-server-11-two.vercel.app/api/v1/assignments?cetagory=${cetagory}`;
     console.log(cetagory)
     useEffect(()=>{
-        axios.get(url,{withCredentials:true})
+        axios.get(url)
         .then(res =>{
             console.log(res.data)
             setAssignments(res.data)
-        })
-        // fetch(url)
-        // .then(res => res.json())
-        // .then(data => {
-        //     console.log(data)
-        //     setAssignments(data)
-        // })
+        });
     },[url])
     return (
         <div>

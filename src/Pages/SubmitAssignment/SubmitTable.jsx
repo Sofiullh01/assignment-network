@@ -11,7 +11,7 @@ const SubmitTable = ({ submitVelue, submitData, setSubmitData }) => {
 
   const handleGiveMarks = (id) => {
     // update
-    fetch(`http://localhost:5000/api/v1/submit/${id}`, {
+    fetch(`https://assignment-server-11-two.vercel.app/api/v1/submit/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
@@ -35,7 +35,7 @@ const SubmitTable = ({ submitVelue, submitData, setSubmitData }) => {
 
       const showInfos = {giveMarks,message,submit,pdfLink,name,stutas}
       // post
-      fetch("http://localhost:5000/api/v1/showAssignment", {
+      fetch("https://assignment-server-11-two.vercel.app/api/v1/showAssignment", {
       method: "POST",
       headers: {
         "content-type": "application/json",
